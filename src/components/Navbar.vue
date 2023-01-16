@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, h, Component, onMounted, watch } from 'vue'
+import { ref, h, Component, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { NIcon, useMessage } from 'naive-ui'
+import { NIcon } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import {
@@ -76,7 +76,7 @@ const menuOptions: MenuOption[] = [
         },
         { default: () => '帮助' }
       ),
-    key: 'NotFound',
+    key: 'Help',
     icon: renderIcon(HelpFilled)
   },
 ]

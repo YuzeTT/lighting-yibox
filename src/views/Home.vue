@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import {
   ManageSearchFilled,
@@ -49,15 +48,10 @@ const msg = list[Math.floor((Math.random()*list.length))]
 <template>
   <div>
     <n-list bordered>
-      <n-list-item @click="go('/app/gua')" style="cursor: pointer;">
-        <n-thing :title="getMsg()" :description="msg">
-          
-        </n-thing>
+      <n-list-item>
+        <n-thing :title="getMsg()" :description="msg" />
       </n-list-item>
       <n-list-item @click="go('/app/gua')" style="cursor: pointer;">
-        <!-- <template #suffix>
-          <n-button @click="go('/app/gua')">进入</n-button>
-        </template> -->
         <n-thing title="八卦速查" description="八卦基本信息 / 万物类像 速查表">
           <template #avatar>
             <n-icon size="30">

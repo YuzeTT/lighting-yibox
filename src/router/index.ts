@@ -21,6 +21,11 @@ const routes = [
       },
     ]
   },
+  {
+    path: '/help',
+    name: "Help",
+    component: () => import("../views/Help.vue"),
+  },
   // {
   //   path: '/u/:id',
   //   name: 'Home',

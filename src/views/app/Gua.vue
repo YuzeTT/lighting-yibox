@@ -5,22 +5,15 @@ import gua from '../../data/gua'
 import wwlx from '../../data/wwlx'
 
 const route = useRoute()
-
-const data = gua.find(({id}) => id === parseInt(route.params.id as string)) || { id: 0, name: '未找到卦象', data: [], wuxing: '', xiangzheng: '' }
-
-const change = () => {
-  console.log(';1')
-}
 </script>
 
 <template>
   <n-tabs type="segment" animated :default-value="parseInt(route.query.id as string) -1 || 0">
-    <n-tab-pane :on-before-leave="()=>change()" :name="index" :tab="item.name" v-for="(item, index) in gua" :key="index">
+    <n-tab-pane :name="index" :tab="item.name" v-for="(item, index) in gua" :key="index">
       <div style="display: flex; align-items: center; gap: 15px; justify-content: center; margin-top: 10px;">
         <Gua :data="item.data" size="small" />
         <div>
           <div class="name1">{{ item.name }}</div>
-          <!-- <div class="name2">乾三连</div> -->
         </div>
       </div>
       <div style="margin: 15px 0" />
@@ -58,12 +51,6 @@ const change = () => {
           </div>
         </n-collapse-item>
       </n-collapse>
-      
-      <!-- <n-list bordered>
-        <n-list-item v-for="(item_, index_) in wwlx[index].data" :key="index">
-          <n-thing :title="item_[0]" :description="item_[1]" />
-        </n-list-item>
-      </n-list> -->
     </n-tab-pane>
   </n-tabs>
 </template>

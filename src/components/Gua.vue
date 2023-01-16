@@ -3,7 +3,6 @@ const props = defineProps<{
   data: number[],
   size?: string
 }>()
-// const data = [0,1,0]
 </script>
 
 <template>

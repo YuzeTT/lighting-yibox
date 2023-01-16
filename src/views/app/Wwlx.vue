@@ -6,16 +6,6 @@ import gua from '../../data/gua'
 
 <template>
   <div>
-    <!-- <n-card title="乾卦">
-      <template #header-extra>
-        #header-extra
-      </template>
-      <Gua :data="[1,1,1]" />
-      <template #footer>
-        #footer
-      </template>
-    </n-card> -->
-
     <n-list bordered>
       <n-list-item v-for="(item, index) in gua" :key="index">
         <template #prefix>
