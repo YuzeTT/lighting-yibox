@@ -6,7 +6,6 @@ import {
 } from '@vicons/material'
 
 const router = useRouter()
-const msg = ref('')
 const go = (path:string) => {
   router.push(path)
 }
@@ -16,69 +15,42 @@ const list = [
   '你阳过了吗',
   '阿伟，你又在算什么哦',
   '你算什么东西？（真诚）',
-  '阿里嘎多，美羊羊桑'
+  '阿里嘎多，美羊羊桑',
+  '（拿枪指着算命的）你算算我蹦不崩你'
 ]
 const nowTime = new Date();
 const h = nowTime.getHours();
 
-const msg_ = list[Math.floor((Math.random()*list.length))]
+const time_list = [
+  '夜已深，注意休息哦！', // 0,1,2
+  '晚安全世界！', // 3,4,5
+  '早安呀！', // 6,7,8
+  '古德猫宁~', // 9,10,11
+  '午休时间', // 12,13,14
+  '下午好！', // 15,16,17
+  '晚上好呀！', // 18,19,20
+  '该睡觉咯~' // 21,22,23
+]
 
-switch (h) {
-  case 0:
-  case 1:
-  case 2:
-  case 3:
-  case 4:
-    msg.value = '夜已深，注意休息哦！'
-    break;
-  case 5:
-  case 6:
-  case 7:
-  case 8:
-    msg.value = '早安呀！'
-    break;
-  case 9:
-  case 10:
-  case 11:
-    msg.value = '古德猫宁~'
-    break;
-  case 12:
-    msg.value = '记得按时吃饭哦！'
-    break;
-  case 13:
-    msg.value = '午休时间！'
-    break;
-  case 14:
-    msg.value = '下午真让人犯困！'
-    break;
-  case 15:
-    msg.value = '喂！三点几啦！饮茶先啦！'
-    break;
-  case 16:
-  case 17:
-  case 18:
-    msg.value = '下午好！'
-    break;
-  case 19:
-  case 20:
-  case 21:
-    msg.value = '晚上好呀！'
-    break;
-  case 22:
-  case 23:
-    msg.value = '该睡觉咯~'
-    break;
-  default:
-    msg.value = '呐呐呐~'
-    break;
+const getMsg = () => {
+  switch (h) {
+    case 12:
+      return '记得按时吃饭哦！'
+    case 15:
+      return '三点几勒！饮茶先啊！'
+    default:
+      return time_list[Math.floor(h/3)]
+  }
 }
+
+const msg = list[Math.floor((Math.random()*list.length))]
 </script>
 
 <template>
   <div>
     <n-list bordered>
       <n-list-item @click="go('/app/gua')" style="cursor: pointer;">
-        <n-thing :title="msg" :description="msg_">
+        <n-thing :title="getMsg()" :description="msg">
           
         </n-thing>
       </n-list-item>
